@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<h1>Transaction History</h1>
+<table class="table table-sm table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Time</th>
+      <th scope="col">Type</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for history in historys %}
+    <tr>
+      <td scope="row">{{ history.time }}</td>
+      <td scope="row">{{ history.type }}</td>
+      <td scope="row">{{ history.symbol }}</td>
+      <td scope="row">{{ history.shares }}</td>
+      <td scope="row">{{ history.price }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

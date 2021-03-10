@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add
+{% endblock %}
+
+{% block main %}
+<h1>Deposit Money</h1>
+<form action="/add" method="post">
+  <div>
+    <input name="deposit" placeholder="Deposit" type="text"/>
+  </div>
+  <button class="btn btn-primary" type="submit">Deposit Money</button>
+</form>
+{% endblock %}

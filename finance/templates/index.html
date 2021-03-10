@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+
+{% block main %}
+<h1>Portfolio</h1>
+{% if message is defined %}
+<p>{{ message }}</p>
+{% else %}
+<table class="table table-sm" style="width:95%">
+  <thead>
+    <tr>
+      <th scope="col">Ticker Symbol</th>
+      <th scope="col">Company</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Price of Stock</th>
+      <th scope="col">Total Price of Stocks</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for stock in stocks %}
+    <tr>
+      <td scope="row">{{ stock.symbol }}</td>
+      <td>{{ stock.name }}</td>
+      <td>{{ stock.shares }}</td>
+      <td>{{ stock.price }}</td>
+      <td>{{ stock.value }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td scope="row" colspan="4" class="text-right">Current Cash Balance:</td>
+      <td>{{ balance }}</td>
+    </tr>
+    <tr>
+      <th scope="row" colspan="4" class="text-right">Grand Total:</th>
+      <td>{{ value }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}
